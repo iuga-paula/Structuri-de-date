@@ -141,6 +141,7 @@ public:
             a->stanga->parinte = nod;
         }
         a->parinte = nod->parinte;
+
         if(nod->parinte == nullptr)
             this->radacina = a;
         else if( nod == nod->parinte->stanga)
@@ -162,7 +163,7 @@ public:
         nod->stanga = a->dreapta;
         if(a->dreapta != NodNULL)
         {
-            a->dreapta->parinte = nod->parinte;
+            a->dreapta->parinte = nod;
         }
         a->parinte = nod->parinte;
         if(nod->parinte == nullptr)
@@ -224,7 +225,7 @@ public:
                 }
                 else                      //este rosu
                 {
-                    if(nod == nod->parinte->parinte)
+                    if(nod == nod->parinte->dreapta)
                     {
                         nod = nod->parinte;
                         rotatie_stanga(nod);
