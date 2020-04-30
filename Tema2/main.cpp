@@ -336,7 +336,7 @@ public:
           {
             b->stanga->culoare = 0;
             b->culoare = 1;
-            rotatie_stanga(b);
+            rotatie_dreapta(b);
             b = a->parinte->dreapta;
           }
 
@@ -426,13 +426,14 @@ public:
             transfer(a, a->stanga);
         }
         else
-        {
-            a = a->dreapta;
-            while(a->stanga != NodNULL)
+        {   NodRN t = a->dreapta;
+            while(t->stanga != NodNULL)
             {
-                a = a->stanga;
+                t = t->stanga;
             }
-            c_culoare =c->culoare;
+            c = t;
+
+            c_culoare=c->culoare;
             b = c->dreapta;
             if (c->parinte == a)
             {
